@@ -48,7 +48,9 @@ public class CartPage {
 
         // Select Region
         driver.findElement(shippingRegionField).click();
-        WebElement regionDropdown = driver.findElement(By.xpath("//select[@id='input-zone']/option[contains(text(), '"+region+"')]"));
+        String regionXpath = "//select[@id='input-zone']/option[contains(text(), '"+region+"')]";
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(regionXpath)));
+        WebElement regionDropdown = driver.findElement(By.xpath(regionXpath));
         regionDropdown.click();
 
         // set postcode

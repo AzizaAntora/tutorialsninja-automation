@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo/automation-framework.git'
+                git 'https://github.com/AzizaAntora/tutorialsninja-automation.git'
             }
         }
         stage('Test') {
@@ -30,7 +30,7 @@ pipeline {
             emailext (
                 subject: 'Automation Test Results',
                 body: '${JELLY_SCRIPT,template="html"}',
-                to: 'team@example.com'
+                to: 'golzar.shohel@streamstech.com'
             )
         }
     }
