@@ -1,0 +1,35 @@
+name: Nightly Tests
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at 00:00 UTC every day
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        browser: [chrome, firefox]
+    name: Test on ${{ matrix.os }} with ${{ matrix.browser }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Run Tests
+        run: mvn clean test -Dbrowser=${{ matrix.browser }} -Dheadless=true
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report-${{ matrix.os }}-${{ matrix.browser }}
+          path: |
+            target/extent-reports/
+            target/surefire-reports/
