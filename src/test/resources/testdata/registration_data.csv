@@ -1,5 +1,5 @@
 firstname,lastname,dynamicEmail,telephone,password,confirm password,newsletter subscribe
-John,Doe,any,any,any,any,Yes
-Matheu,Arthur,any,any,any,any,No
-David,Lam,any,any,any,any,Yes
-Michael,Clark,any,any,any,any,No
+John,Doe,jhon@gmail.com,1234567,123456,123456,Yes
+Matheu,Arthur,matheu@gmail.com,1234567,456321,456321,No
+David,Lam,david@gmail.com,1234567,789654,789654,Yes
+Michael,Clark,michael@gmail.com,1234567,543246,543246,No

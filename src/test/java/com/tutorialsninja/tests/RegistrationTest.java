@@ -22,24 +22,20 @@ public class RegistrationTest extends BaseTest {
 	            
 	            RegistrationPage registrationPage = new RegistrationPage(driver);
 	            String timestamp = String.valueOf(System.currentTimeMillis());
-	            String uniqueEmail = email.replace("any", "test" + timestamp + "@example.com");
 	            
 	            registrationPage.fillRegistrationForm(
 	                firstName,
 	                lastName,
-	                uniqueEmail,
-	                telephone.replace("any", "1234567890"),
-	                password.replace("any", "Password123"),
-	                confirmPassword.replace("any", "Password123"),
+						timestamp + "_" + email,
+	                telephone,
+	                password,
+	                confirmPassword,
 	                newsletter
 	            );
 	            
 	            AccountSuccessPage successPage = new AccountSuccessPage(driver);
 	            Assert.assertTrue(successPage.isSuccessMessageDisplayed());
-				// test.log(LogStatus.PASS, "Registration successful for user: " + firstName);
 	        } catch (Exception e) {
-	            // test.fail("Test failed: " + e.getMessage());
-				// test.log(LogStatus.FAIL, "Test failed: " + e.getMessage());
 	            throw e;
 	        }
 	    }
