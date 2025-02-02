@@ -15,7 +15,6 @@ A robust test automation framework for TutorialsNinja e-commerce platform, imple
 - Cross-browser & cross-platform compatibility
 - CI/CD integration with scheduled executions
 - Parallel test execution capability
-- Automatic screenshot capture on failures
 
 ## Prerequisites
 
